@@ -24,6 +24,7 @@ public:
 	static void testCompare() ;
 	static void testDeleteByComparison();
 	static void testAdd();
+	static void testFind();
 protected:
 	ContainersTest(){}
 };

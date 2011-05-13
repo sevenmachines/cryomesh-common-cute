@@ -15,6 +15,7 @@ void ContainersTest::runSuite() {
 	s.push_back(CUTE(ContainersTest::testAdd));
 	s.push_back(CUTE(ContainersTest::testCompare));
 	s.push_back(CUTE(ContainersTest::testDeleteByComparison));
+	s.push_back(CUTE(ContainersTest::testFind));
 	cute::ide_listener lis;
 	cute::makeRunner(lis)(s, "ContainersTest");
 }
@@ -99,5 +100,22 @@ void ContainersTest::testDeleteByComparison() {
 	}
 }
 
+void ContainersTest::testFind() {
+	std::list < std::string > testlist( { "a", "b", "c" });
+
+	// succeed
+	{
+		std::list<std::string>::const_iterator it_found = Containers::find<std::list<std::string>, std::string>(
+				testlist, "a");
+		ASSERT( it_found!= testlist.end());
+	}
+
+	// fail
+	{
+		std::list<std::string>::const_iterator it_found = Containers::find<std::list<std::string>, std::string>(
+				testlist, "z");
+		ASSERT( it_found == testlist.end());
+	}
 }
-}
+}//NAMESPACE
+}//NAMESPACE

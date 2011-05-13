@@ -6,13 +6,16 @@
 #include "spacial/SphericalPointTest.h"
 #include "spacial/PointTest.h"
 
-
 // common
 #include "common/SimpleCollectionTest.h"
 #include "common/MiscTest.h"
 #include "common/MathsTest.h"
 #include "common/ContainersTest.h"
 #include "common/KeyStoreTest.h"
+
+//config
+#include "config/ConfigEntryTest.h"
+#include "config/ConfigTranslatorTest.h"
 
 using namespace cryomesh;
 
@@ -28,10 +31,15 @@ void runCommonSuite() {
 	common::KeyStoreTest::runSuite();
 }
 
+void runConfigSuite() {
+	config::ConfigEntryTest::runSuite();
+	config::ConfigTranslatorTest::runSuite();
+}
 
 int main() {
 	runCommonSuite();
 	runSpacialSuite();
+	runConfigSuite();
 	return 0;
 }
 
