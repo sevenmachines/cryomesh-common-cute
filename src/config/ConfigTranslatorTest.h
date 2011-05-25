@@ -19,6 +19,7 @@ public:
 	virtual ~ConfigTranslatorTest(){}
 	static void runSuite();
 	static void testRead();
+	static void testReadStream();
 };
 
 }
