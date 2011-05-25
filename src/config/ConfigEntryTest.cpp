@@ -27,11 +27,29 @@ void ConfigEntryTest::runSuite() {
 
 void ConfigEntryTest::testParseEntry() {
 	{
-		std::string teststring1 = "command option1=1 option2=2 option3=3";
+		std::string teststring1 = "command option1=1 option2=2 option3=3 option4=\"4 5 6\" ";
 		ConfigEntry confentry(teststring1);
+
+		std::cout<<"ConfigEntryTest::testParseEntry: "<<confentry<<std::endl;
 		ASSERT_EQUAL(teststring1, confentry.getRawEntry());
 		ASSERT_EQUAL("command", confentry.getCommand());
-		ASSERT_EQUAL(3, confentry.getOptions().size());
+		ASSERT_EQUAL("1", confentry.getOptionValue("option1"));
+		ASSERT_EQUAL("2", confentry.getOptionValue("option2"));
+		ASSERT_EQUAL("3", confentry.getOptionValue("option3"));
+		ASSERT_EQUAL("4 5 6", confentry.getOptionValue("option4"));
+
+
+	}
+
+	// test error
+	{
+		std::string teststring1 = "autoconnect-inputs ids=\"1 2\"";
+				ConfigEntry confentry(teststring1);
+
+				std::cout<<"ConfigEntryTest::testParseEntry: "<<confentry<<std::endl;
+				ASSERT_EQUAL(teststring1, confentry.getRawEntry());
+				ASSERT_EQUAL("autoconnect-inputs", confentry.getCommand());
+				ASSERT_EQUAL("1 2", confentry.getOptionValue("ids"));
 
 	}
 }
