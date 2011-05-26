@@ -5,6 +5,7 @@
 //spacial
 #include "spacial/SphericalPointTest.h"
 #include "spacial/PointTest.h"
+#include "spacial/ActivityGridTest.h"
 
 // common
 #include "common/SimpleCollectionTest.h"
@@ -22,6 +23,7 @@ using namespace cryomesh;
 void runSpacialSuite() {
 	spacial::SphericalPointTest::runSuite();
 	spacial::PointTest::runSuite();
+	spacial::ActivityGridTest::runSuite();
 }
 void runCommonSuite() {
 	common::SimpleCollectionTest::runSuite();
