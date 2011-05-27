@@ -18,6 +18,7 @@ void ActivityGridTest::runSuite() {
 	s.push_back(CUTE( ActivityGridTest::testCreation));
 	s.push_back(CUTE( ActivityGridTest::testReScaling));
 	s.push_back(CUTE( ActivityGridTest::testInterpolation));
+	s.push_back(CUTE( ActivityGridTest::testApplyGridActivityModifier));
 	cute::ide_listener lis;
 	cute::makeRunner(lis)(s, "ActivityGridTest");
 }
@@ -46,9 +47,9 @@ void ActivityGridTest::testReScaling() {
 
 void ActivityGridTest::testInterpolation() {
 
-	const double DISTANCE1D =sqrt ( ( 0.5  * 0.5 )  + ( 0.5  * 0.5 ) + ( 0.5  * 0.5 ));
-	const double DISTANCE2D =sqrt ( ( 1.5  * 1.5 )  + ( 1.5  * 1.5 ) + ( 1.5  * 1.5 ));
-	const double DISTANCE3D =sqrt ( ( 2.5  *2.5 )  + ( 2.5  * 2.5 ) + ( 2.5  * 2.5 ));
+	const double DISTANCE1D = sqrt((0.5 * 0.5) + (0.5 * 0.5) + (0.5 * 0.5));
+	const double DISTANCE2D = sqrt((1.5 * 1.5) + (1.5 * 1.5) + (1.5 * 1.5));
+	const double DISTANCE3D = sqrt((2.5 * 2.5) + (2.5 * 2.5) + (2.5 * 2.5));
 
 	// get interpolation
 	{
@@ -117,6 +118,118 @@ void ActivityGridTest::testInterpolation() {
 		//std::cout << "ActivityGridTest::testInterpolation: " << activity << std::endl;
 		ASSERT_EQUAL_DELTA(exp_total, activity, 0.0001);
 	}
+}
+
+void ActivityGridTest::testApplyGridActivityModifier() {
+	// test addition
+	{
+		const double EQUAL_ACTIVITY = 6;
+		const int GRID_X = 11;
+		const int GRID_Y = 11;
+		const int GRID_Z = 11;
+		const double ADDITION_VAL = -0.3;
+
+		boost::shared_ptr<ActivityGrid> grid(new ActivityGrid(GRID_X, GRID_Y, GRID_Z));
+		grid->clearGrid(EQUAL_ACTIVITY);
+
+		grid->applyGridActivityModifier(ADDITION_VAL, ActivityGrid::ACTIVITY_MODIFIER_ADDITION);
+		// test set up
+		{
+			for (int i = 0; i < GRID_X; i++) {
+				for (int j = 0; j < GRID_Y; j++) {
+					for (int k = 0; k < GRID_Z; k++) {
+						double act = grid->getGridPointActivity(i, j, k);
+						//	std::cout << "BoundingBoxTest::testBoxCorners1: " << "(" << i << ", " << j << ", " << k << ") = "
+						//		<< act << std::endl;
+						ASSERT_EQUAL_DELTA(act, EQUAL_ACTIVITY + ADDITION_VAL, 0.00001);
+					}
+				}
+			}
+		}
+	}
+
+	// test multiplication
+	{
+		const double EQUAL_ACTIVITY = 6;
+		const int GRID_X = 11;
+		const int GRID_Y = 11;
+		const int GRID_Z = 11;
+		const double MULT_VAL = -0.3;
+
+		boost::shared_ptr<ActivityGrid> grid(new ActivityGrid(GRID_X, GRID_Y, GRID_Z));
+		grid->clearGrid(EQUAL_ACTIVITY);
+
+		grid->applyGridActivityModifier(MULT_VAL, ActivityGrid::ACTIVITY_MODIFIER_MULTIPLY);
+		// test set up
+		{
+			for (int i = 0; i < GRID_X; i++) {
+				for (int j = 0; j < GRID_Y; j++) {
+					for (int k = 0; k < GRID_Z; k++) {
+						double act = grid->getGridPointActivity(i, j, k);
+						//	std::cout << "BoundingBoxTest::testBoxCorners1: " << "(" << i << ", " << j << ", " << k << ") = "
+						//		<< act << std::endl;
+						ASSERT_EQUAL_DELTA(act, EQUAL_ACTIVITY *MULT_VAL, 0.00001);
+					}
+				}
+			}
+		}
+	}
+
+	// test invert
+	{
+		const double EQUAL_ACTIVITY = 6;
+		const int GRID_X = 11;
+		const int GRID_Y = 11;
+		const int GRID_Z = 11;
+		const double ADDITION_VAL = -0.3;
+
+		boost::shared_ptr<ActivityGrid> grid(new ActivityGrid(GRID_X, GRID_Y, GRID_Z));
+		grid->clearGrid(EQUAL_ACTIVITY);
+
+		grid->applyGridActivityModifier(ADDITION_VAL, ActivityGrid::ACTIVITY_MODIFIER_INVERT);
+		// test set up
+		{
+			for (int i = 0; i < GRID_X; i++) {
+				for (int j = 0; j < GRID_Y; j++) {
+					for (int k = 0; k < GRID_Z; k++) {
+						double act = grid->getGridPointActivity(i, j, k);
+						//	std::cout << "BoundingBoxTest::testBoxCorners1: " << "(" << i << ", " << j << ", " << k << ") = "
+						//		<< act << std::endl;
+						ASSERT_EQUAL_DELTA(act, -EQUAL_ACTIVITY, 0.00001);
+					}
+				}
+			}
+		}
+	}
+
+	// test compound
+	{
+		const double EQUAL_ACTIVITY = 6;
+		const int GRID_X = 11;
+		const int GRID_Y = 11;
+		const int GRID_Z = 11;
+		const double ADDITION_VAL = -0.3;
+
+		boost::shared_ptr<ActivityGrid> grid(new ActivityGrid(GRID_X, GRID_Y, GRID_Z));
+		grid->clearGrid(EQUAL_ACTIVITY);
+
+		grid->applyGridActivityModifier(ADDITION_VAL, ActivityGrid::ACTIVITY_MODIFIER_ADDITION|
+				ActivityGrid::ACTIVITY_MODIFIER_MULTIPLY|ActivityGrid::ACTIVITY_MODIFIER_INVERT);
+		// test set up
+		{
+			for (int i = 0; i < GRID_X; i++) {
+				for (int j = 0; j < GRID_Y; j++) {
+					for (int k = 0; k < GRID_Z; k++) {
+						double act = grid->getGridPointActivity(i, j, k);
+						//	std::cout << "BoundingBoxTest::testBoxCorners1: " << "(" << i << ", " << j << ", " << k << ") = "
+						//		<< act << std::endl;
+						ASSERT_EQUAL_DELTA(act, ((EQUAL_ACTIVITY+ADDITION_VAL)*ADDITION_VAL * -1), 0.00001);
+					}
+				}
+			}
+		}
+	}
+
 }
 
 }//NAMESPACE

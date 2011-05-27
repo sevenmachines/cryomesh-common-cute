@@ -22,6 +22,7 @@ public:
 	static void testCreation();
 	static void testReScaling();
 	static void testInterpolation();
+	static  void testApplyGridActivityModifier();
 };
 
 }
