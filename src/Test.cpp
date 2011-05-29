@@ -22,9 +22,9 @@
 using namespace cryomesh;
 
 void runSpacialSuite() {
-	spacial::SphericalPointTest::runSuite();
+	//spacial::SphericalPointTest::runSuite();
 	spacial::PointTest::runSuite();
-	spacial::BoundingBoxTest::runSuite();
+	//spacial::BoundingBoxTest::runSuite();
 	spacial::ActivityGridTest::runSuite();
 }
 void runCommonSuite() {
@@ -41,9 +41,9 @@ void runConfigSuite() {
 }
 
 int main() {
-	runCommonSuite();
+	//runCommonSuite();
 	runSpacialSuite();
-	runConfigSuite();
+	//runConfigSuite();
 	return 0;
 }
 

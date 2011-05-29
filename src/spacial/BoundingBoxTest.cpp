@@ -182,7 +182,7 @@ void BoundingBoxTest::testGetInterpolatedActivity2() {
 	const int REF_X = 1;
 	const int REF_Y = 4;
 	const int REF_Z = 9;
-	boost::shared_ptr<ActivityGrid> grid(new ActivityGrid(GRID_X, GRID_Y, GRID_Z));
+	boost::shared_ptr<ActivityGrid> grid(new ActivityGrid(GRID_X, GRID_Y, GRID_Z, 1));
 	grid->randomise(MIN_BOX_ACTIVITY, MAX_BOX_ACTIVITY);
 
 	// put point in dead centre of grid

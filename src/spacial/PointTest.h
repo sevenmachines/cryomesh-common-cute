@@ -19,6 +19,7 @@ public:
 	static void  testgetDistance();
 	static void  testoperators() ;
 	static void  testgetNormalisedVector() ;
+	static void testScale();
 };
 
 } //NAMESPACE
