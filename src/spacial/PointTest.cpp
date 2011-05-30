@@ -11,6 +11,7 @@ void PointTest::runSuite() {
 	s.push_back(CUTE(PointTest::testoperators));
 	s.push_back(CUTE(PointTest::testgetNormalisedVector));
 	s.push_back(CUTE(PointTest::testScale));
+	s.push_back(CUTE(PointTest::testRounded));
 	cute::ide_listener lis;
 	cute::makeRunner(lis)(s, "PointTest");
 }
@@ -105,6 +106,12 @@ void PointTest::testScale() {
 		ASSERT_EQUAL_DELTA(Z, p4.getZ(), 0.00001);
 	}
 
+}
+
+void PointTest::testRounded() {
+	Point p(1.5, 1.2, 1.8);
+	Point q = p.getRounded();
+	ASSERT_EQUAL(Point(2, 1, 2), q);
 }
 }//NAMESPACE
 }//NAMESPACE

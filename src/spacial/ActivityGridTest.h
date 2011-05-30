@@ -23,6 +23,10 @@ public:
 	static void testReScaling();
 	static void testInterpolation();
 	static  void testApplyGridActivityModifier();
+	static  void testGetSetNearestGripPointActivity();
+	static void testApplyPointActivity();
+	static  void testApplyPointActivityToGrid();
+	static  void testGetByActivity();
 };
 
 }

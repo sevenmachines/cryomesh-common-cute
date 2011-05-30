@@ -20,6 +20,7 @@ public:
 	static void  testoperators() ;
 	static void  testgetNormalisedVector() ;
 	static void testScale();
+	static void testRounded();
 };
 
 } //NAMESPACE
