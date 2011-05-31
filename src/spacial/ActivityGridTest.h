@@ -26,6 +26,8 @@ public:
 	static  void testGetSetNearestGripPointActivity();
 	static void testApplyPointActivity();
 	static  void testApplyPointActivityToGrid();
+	static  void testApplyPointActivityToGrid2();
+	static  void testApplyPointActivityToGrid3();
 	static  void testGetByActivity();
 };
 
