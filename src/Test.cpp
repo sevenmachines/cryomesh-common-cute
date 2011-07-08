@@ -7,6 +7,7 @@
 #include "spacial/PointTest.h"
 #include "spacial/BoundingBoxTest.h"
 #include "spacial/ActivityGridTest.h"
+#include "spacial/GridContainerTest.h"
 
 // common
 #include "common/SimpleCollectionTest.h"
@@ -26,6 +27,7 @@ void runSpacialSuite() {
 	spacial::PointTest::runSuite();
 	spacial::BoundingBoxTest::runSuite();
 	spacial::ActivityGridTest::runSuite();
+//	spacial::GridContainerTest::runSuite();
 }
 void runCommonSuite() {
 	common::SimpleCollectionTest::runSuite();
@@ -42,8 +44,8 @@ void runConfigSuite() {
 
 int main() {
 	runCommonSuite();
-	runSpacialSuite();
 	runConfigSuite();
+	runSpacialSuite();
 	return 0;
 }
 
