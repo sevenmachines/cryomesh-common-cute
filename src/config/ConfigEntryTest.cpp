@@ -29,8 +29,9 @@ void ConfigEntryTest::testParseEntry() {
 	{
 		std::string teststring1 = "command option1=1 option2=2 option3=3 option4=\"4 5 6\" ";
 		ConfigEntry confentry(teststring1);
-
+#ifdef CONFIGENTRYTEST_DEBUG
 		std::cout<<"ConfigEntryTest::testParseEntry: "<<confentry<<std::endl;
+#endif
 		ASSERT_EQUAL(teststring1, confentry.getRawEntry());
 		ASSERT_EQUAL("command", confentry.getCommand());
 		ASSERT_EQUAL("1", confentry.getOptionValue("option1"));

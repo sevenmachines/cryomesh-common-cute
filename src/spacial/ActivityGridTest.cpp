@@ -30,7 +30,6 @@ void ActivityGridTest::runSuite() {
 }
 
 void ActivityGridTest::testCreation() {
-	std::cout << "ActivityGridTest::testCreation: " << "" << std::endl;
 	const int UNIT_SCALE = 1.0;
 	const int GRID_X = 10;
 	const int GRID_Y = 11;
@@ -39,11 +38,9 @@ void ActivityGridTest::testCreation() {
 	// forall in all_vals
 	{
 
-		std::cout << "ActivityGridTest::testCreation: " << "DEBUG 1" << std::endl;
 		ActivityGrid grid(GRID_X, GRID_Y, GRID_Z);
 		ASSERT(grid.checkGridPointCount( Coordinates<int>(GRID_X, GRID_Y, GRID_Z)));
 		ASSERT(grid.checkGridPointValues(0.0, 0.0));
-		std::cout << "ActivityGridTest::testCreation: " << "DEBUG 2" << std::endl;
 		const std::map<Coordinates<int> , double> & all_vals = grid.getActivityGrid();
 		std::map<Coordinates<int> , double>::const_iterator it_all_vals = all_vals.begin();
 		const std::map<Coordinates<int> , double>::const_iterator it_all_vals_end = all_vals.end();
@@ -55,7 +52,6 @@ void ActivityGridTest::testCreation() {
 
 	// check creation at scale
 	{
-		std::cout << "ActivityGridTest::testCreation: " << "DEBUG  1:1" << std::endl;
 		//1:1
 		{
 			int SCALE = 1;
@@ -64,7 +60,6 @@ void ActivityGridTest::testCreation() {
 			ASSERT(grid.checkGridPointValues(0.0, 0.0));
 		}
 
-		std::cout << "ActivityGridTest::testCreation: " << "DEBUG  10:1" << std::endl;
 		//10:1
 		{
 			int SCALE = 3;
@@ -436,10 +431,11 @@ void ActivityGridTest::testApplyPointActivityToGrid() {
 				int less_than = 0;
 				int not_found = 0;
 				grid_orig.compareGridPoints(grid, equal_to, greater_than, less_than, not_found);
+#ifdef ACTIVITYGRIDTEST_DEBUG
 				std::cout << "ActivityGridTest::testApplyPointActivityToGrid: " << i << "  " << "equal_to: "
-						<< equal_to << " " << "greater_than: " << greater_than << " " << "less_than: " << less_than
-						<< " " << "not_found: " << not_found << std::endl << grid << std::endl;
-
+				<< equal_to << " " << "greater_than: " << greater_than << " " << "less_than: " << less_than
+				<< " " << "not_found: " << not_found << std::endl << grid << std::endl;
+#endif
 				if (SET_ASSERT_ON == true) {
 					ASSERT_EQUAL(0,less_than);
 					ASSERT_EQUAL(0,not_found);
@@ -464,9 +460,11 @@ void ActivityGridTest::testApplyPointActivityToGrid() {
 				int less_than = 0;
 				int not_found = 0;
 				grid_orig.compareGridPoints(grid, equal_to, greater_than, less_than, not_found);
+#ifdef ACTIVITYGRIDTEST_DEBUG
 				std::cout << "ActivityGridTest::testApplyPointActivityToGrid: " << i << "  " << "equal_to: "
-						<< equal_to << " " << "greater_than: " << greater_than << " " << "less_than: " << less_than
-						<< " " << "not_found: " << not_found << std::endl << grid << std::endl;
+				<< equal_to << " " << "greater_than: " << greater_than << " " << "less_than: " << less_than
+				<< " " << "not_found: " << not_found << std::endl << grid << std::endl;
+#endif
 				if (SET_ASSERT_ON == true) {
 					ASSERT_EQUAL(0,less_than);
 					ASSERT_EQUAL(0,not_found);
@@ -491,9 +489,11 @@ void ActivityGridTest::testApplyPointActivityToGrid() {
 				int less_than = 0;
 				int not_found = 0;
 				grid_orig.compareGridPoints(grid, equal_to, greater_than, less_than, not_found);
+#ifdef ACTIVITYGRIDTEST_DEBUG
 				std::cout << "ActivityGridTest::testApplyPointActivityToGrid: " << i << "  " << "equal_to: "
 						<< equal_to << " " << "greater_than: " << greater_than << " " << "less_than: " << less_than
 						<< " " << "not_found: " << not_found << std::endl << grid << std::endl;
+#endif
 				if (SET_ASSERT_ON == true) {
 					ASSERT_EQUAL(0,less_than);
 					ASSERT_EQUAL(0,not_found);
@@ -538,9 +538,11 @@ void ActivityGridTest::testApplyPointActivityToGrid2() {
 				int less_than = 0;
 				int not_found = 0;
 				grid_orig.compareGridPoints(grid, equal_to, greater_than, less_than, not_found);
+#ifdef ACTIVITYGRIDTEST_DEBUG
 				std::cout << "ActivityGridTest::testApplyPointActivityToGrid: 0: " << i << ": " << "equal_to: "
 						<< equal_to << " " << "greater_than: " << greater_than << " " << "less_than: " << less_than
 						<< " " << "not_found: " << not_found << std::endl << grid << std::endl;
+#endif
 			}
 
 			//slightly less poiint
@@ -554,9 +556,11 @@ void ActivityGridTest::testApplyPointActivityToGrid2() {
 				int less_than = 0;
 				int not_found = 0;
 				grid_orig.compareGridPoints(grid, equal_to, greater_than, less_than, not_found);
-				std::cout << "ActivityGridTest::testApplyPointActivityToGrid: - 0.01: " << i << ": " << "equal_to: "
+#ifdef ACTIVITYGRIDTEST_DEBUG
+std::cout << "ActivityGridTest::testApplyPointActivityToGrid: - 0.01: " << i << ": " << "equal_to: "
 						<< equal_to << " " << "greater_than: " << greater_than << " " << "less_than: " << less_than
 						<< " " << "not_found: " << not_found << std::endl << grid << std::endl;
+#endif
 			}
 
 			//mostly less poiint
@@ -570,9 +574,11 @@ void ActivityGridTest::testApplyPointActivityToGrid2() {
 				int less_than = 0;
 				int not_found = 0;
 				grid_orig.compareGridPoints(grid, equal_to, greater_than, less_than, not_found);
-				std::cout << "ActivityGridTest::testApplyPointActivityToGrid: - 0.99: " << i << ": " << "equal_to: "
+#ifdef ACTIVITYGRIDTEST_DEBUG
+std::cout << "ActivityGridTest::testApplyPointActivityToGrid: - 0.99: " << i << ": " << "equal_to: "
 						<< equal_to << " " << "greater_than: " << greater_than << " " << "less_than: " << less_than
 						<< " " << "not_found: " << not_found << std::endl << grid << std::endl;
+#endif
 			}
 
 		}
@@ -609,9 +615,11 @@ void ActivityGridTest::testApplyPointActivityToGrid2() {
 				int less_than = 0;
 				int not_found = 0;
 				grid_orig.compareGridPoints(grid, equal_to, greater_than, less_than, not_found);
-				std::cout << "ActivityGridTest::testApplyPointActivityToGrid: " << "equal_to: " << equal_to << " "
+#ifdef ACTIVITYGRIDTEST_DEBUG
+	std::cout << "ActivityGridTest::testApplyPointActivityToGrid: " << "equal_to: " << equal_to << " "
 						<< "greater_than: " << greater_than << " " << "less_than: " << less_than << " "
 						<< "not_found: " << not_found << std::endl << grid << std::endl;
+#endif
 				ASSERT_EQUAL(0,less_than);
 				ASSERT_EQUAL(0,not_found);
 				ASSERT(greater_than <=22);
@@ -649,10 +657,12 @@ void ActivityGridTest::testApplyPointActivityToGrid2() {
 			int less_than = 0;
 			int not_found = 0;
 			grid_orig.compareGridPoints(grid, equal_to, greater_than, less_than, not_found);
-			std::cout << "ActivityGridTest::testApplyPointActivityToGrid: " << "equal_to: " << equal_to << " "
+#ifdef ACTIVITYGRIDTEST_DEBUG
+std::cout << "ActivityGridTest::testApplyPointActivityToGrid: " << "equal_to: " << equal_to << " "
 					<< "greater_than: " << greater_than << " " << "less_than: " << less_than << " " << "not_found: "
 					<< not_found << std::endl << grid << std::endl;
-			ASSERT_EQUAL(0,less_than);
+#endif
+ASSERT_EQUAL(0,less_than);
 			ASSERT_EQUAL(0,not_found);
 			ASSERT(greater_than <=22);
 			ASSERT(greater_than >=9);

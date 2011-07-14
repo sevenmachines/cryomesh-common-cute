@@ -24,8 +24,10 @@ void ConfigTranslatorTest::testRead() {
 	const std::string CONFIG_FILE = "Data/test.config";
 	ConfigTranslator trans(CONFIG_FILE);
 	const std::list<ConfigEntry> & entry_map = trans.getEntries();
+#ifdef CONFIGTRANSLATORTEST_DEBUG
 	std::cout << "ConfigTranslatorTest::testRead: " << "" << std::endl;
 	std::cout << trans << std::endl;
+#endif
 	ASSERT_EQUAL(3, entry_map.size());
 
 	// option 1
@@ -61,8 +63,10 @@ void ConfigTranslatorTest::testReadStream() {
 	ss << "command-3 option1=1 option2=2 option3=3 " << std::endl;
 	ConfigTranslator trans(ss);
 	const std::list<ConfigEntry> & entry_map = trans.getEntries();
+#ifdef CONFIGTRANSLATORTEST_DEBUG
 	std::cout << "ConfigTranslatorTest::testRead: " << "" << std::endl;
 	std::cout << trans << std::endl;
+#endif
 	ASSERT_EQUAL(3, entry_map.size());
 
 	// option 1
