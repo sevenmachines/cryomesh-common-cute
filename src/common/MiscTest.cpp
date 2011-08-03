@@ -38,7 +38,6 @@ void MiscTest::testtoLower() {
 		std::list<std::string> newlist = Misc::toLower(templs);
 
 		std::list<std::string>::const_iterator it_newls = newlist.begin();
-		const std::list<std::string>::const_iterator it_newls_end = newlist.end();
 
 		ASSERT_EQUAL(2, newlist.size());
 

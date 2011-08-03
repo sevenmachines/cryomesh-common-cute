@@ -98,6 +98,8 @@ void SimpleCollectionTest::testGetValueAt() {
 	// test exception
 	try {
 		int none = sc[4];
+		// add this to make use of pedantic int
+		std::cout<<"SimpleCollectionTest::testGetValueAt: "<<"sc[4]="<<none<<std::endl;
 		ASSERTM("Exception missed!", false);
 	} catch (exceptions::IndexOutOfBoundsException & except) {
 		ASSERT(true);

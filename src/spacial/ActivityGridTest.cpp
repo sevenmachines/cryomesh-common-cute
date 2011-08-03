@@ -30,7 +30,7 @@ void ActivityGridTest::runSuite() {
 }
 
 void ActivityGridTest::testCreation() {
-	const int UNIT_SCALE = 1.0;
+	//const int UNIT_SCALE = 1.0;
 	const int GRID_X = 10;
 	const int GRID_Y = 11;
 	const int GRID_Z = 12;
@@ -73,8 +73,8 @@ void ActivityGridTest::testCreation() {
 
 void ActivityGridTest::testReScaling() {
 	const double DISTANCE1D = sqrt((0.5 * 0.5) + (0.5 * 0.5) + (0.5 * 0.5));
-	const double DISTANCE2D = sqrt((1.5 * 1.5) + (1.5 * 1.5) + (1.5 * 1.5));
-	const double DISTANCE3D = sqrt((2.5 * 2.5) + (2.5 * 2.5) + (2.5 * 2.5));
+	//const double DISTANCE2D = sqrt((1.5 * 1.5) + (1.5 * 1.5) + (1.5 * 1.5));
+	//const double DISTANCE3D = sqrt((2.5 * 2.5) + (2.5 * 2.5) + (2.5 * 2.5));
 	const double EQUAL_ACTIVITY = 2;
 	const int GRID_X = 11;
 	const int GRID_Y = 11;
@@ -116,8 +116,8 @@ void ActivityGridTest::testReScaling() {
 		grid->setScale(10);
 		// get interpolation
 		{
-			boost::shared_ptr<Point> test_point1(new Point(55, 55, 55));
-			boost::shared_ptr<Point> test_point2(new Point(550, 550, 550));
+			boost::shared_ptr<Point> test_point1(new Point(0.5, 0.5, 0.5));
+			boost::shared_ptr<Point> test_point2(new Point(50, 550, 550));
 
 			double level1_act = 8 * (EQUAL_ACTIVITY - DISTANCE1D);
 			double exp_total = level1_act;
@@ -327,7 +327,7 @@ void ActivityGridTest::testGetSetNearestGripPointActivity() {
 	const int GRID_X = 9;
 	const int GRID_Y = 9;
 	const int GRID_Z = 9;
-	const int GRID_TOTAL = GRID_X * GRID_Y * GRID_Z;
+	//const int GRID_TOTAL = GRID_X * GRID_Y * GRID_Z;
 	const int SCALE = 1;
 	double MIN_ACT = 0.0;
 	double MAX_ACT = 10;
@@ -514,9 +514,9 @@ void ActivityGridTest::testApplyPointActivityToGrid2() {
 		const int GRID_Z = 19;
 		const int POINT_X = 9;
 		const int POINT_Y = 9;
-		const int POINT_Z = 9;
+		//const int POINT_Z = 9;
 
-		const int GRID_TOTAL = GRID_X * GRID_Y * GRID_Z;
+		//const int GRID_TOTAL = GRID_X * GRID_Y * GRID_Z;
 
 		for (int i = 1; i < 6; i++) {
 			const double ACTIVITY_DECAY = 1;
@@ -599,9 +599,9 @@ std::cout << "ActivityGridTest::testApplyPointActivityToGrid: - 0.99: " << i << 
 			grid.setActivityDecay(ACTIVITY_DECAY);
 			for (int i = 0; i < 10; i++) {
 				grid.clearGrid();
-				double random_x = common::Maths::getRandomDouble(2, GRID_X - 2);
-				double random_y = common::Maths::getRandomDouble(2, GRID_Y - 2);
-				double random_z = common::Maths::getRandomDouble(2, GRID_Z - 2);
+				//double random_x = common::Maths::getRandomDouble(2, GRID_X - 2);
+				//double random_y = common::Maths::getRandomDouble(2, GRID_Y - 2);
+				//double random_z = common::Maths::getRandomDouble(2, GRID_Z - 2);
 				double temp_x = 5 - (i * 0.1);
 				double temp_y = 5 - (i * 0.1);
 				double temp_z = 5 - (i * 0.1);
@@ -765,7 +765,7 @@ void ActivityGridTest::testApplyPointActivityToGrid3() {
 		const int GRID_X = 20;
 		const int GRID_Y = 20;
 		const int GRID_Z = 20;
-		const int GRID_TOTAL = GRID_X * GRID_Y * GRID_Z;
+		//const int GRID_TOTAL = GRID_X * GRID_Y * GRID_Z;
 		const double ACTIVITY_DECAY = 1.75;
 		const double ACTIVITY = 3.2;
 

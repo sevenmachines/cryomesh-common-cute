@@ -93,7 +93,6 @@ void SphericalPointTest::testgetArcLength() {
 	}
 }
 void SphericalPointTest::testoperators() {
-	const double DELTA = 0.0001;
 	Point p1(1, 1, 1);
 	Point p2(2, 2, 2);
 	Point p3(3, 3, 3);
@@ -101,21 +100,7 @@ void SphericalPointTest::testoperators() {
 	SphericalPoint sp1(p1);
 	SphericalPoint sp2(p2);
 	SphericalPoint sp3(p3);
-	bool plus = sp1 + sp2 == sp3;
-	//std::cout<<"testoperators: minus"<<" "<<std::endl;
-	//SphericalPoint sp4 = sp1+sp2;
-	//std::cout<< sp4 <<std::endl;
-	//std::cout<< Point(sp4) <<std::endl;
-	//std::cout<<"testoperators: minus"<<" "<<std::endl;
-	//SphericalPoint sp5 = sp3-sp2;
-	//std::cout<< sp5 <<std::endl;
-	//std::cout<< sp1 <<std::endl;
-	//std::cout<< Point(sp5) <<std::endl;
-	//std::cout<< Point(sp1) <<std::endl;
-	//ASSERT_EQUAL_DELTA((sp3-sp2).getRadius(), sp1.getRadius(), DELTA);
-	//ASSERT_EQUAL_DELTA((sp3-sp2).getTheta(), sp1.getTheta(), DELTA);
-	//ASSERT_EQUAL_DELTA((sp3-sp2).getPhi(), sp1.getPhi(), DELTA);
-	//ASSERT(plus);
+
 	ASSERT((sp1 + sp2).equals(sp3));
 
 	ASSERT((sp3 - sp2).equals(sp1));

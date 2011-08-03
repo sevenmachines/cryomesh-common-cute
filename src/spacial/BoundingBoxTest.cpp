@@ -58,14 +58,22 @@ void BoundingBoxTest::testBoxCorners1() {
 	}
 	// test point
 	{
-		ASSERT_EQUAL_DELTA(grid->getGridPointActivity(REF_X, REF_Y, REF_Z), box.getBoxElement(BoundingBox::BoxOrientation::FrontBottomLeft)->getActivity(),0.00001);
-		ASSERT_EQUAL_DELTA(grid->getGridPointActivity(REF_X+1, REF_Y, REF_Z), box.getBoxElement(BoundingBox::BoxOrientation::FrontBottomRight)->getActivity(),0.00001);
-		ASSERT_EQUAL_DELTA(grid->getGridPointActivity(REF_X, REF_Y, REF_Z+1), box.getBoxElement(BoundingBox::BoxOrientation::FrontTopLeft)->getActivity(),0.00001);
-		ASSERT_EQUAL_DELTA(grid->getGridPointActivity(REF_X+1, REF_Y, REF_Z+1), box.getBoxElement(BoundingBox::BoxOrientation::FrontTopRight)->getActivity(),0.00001);
-		ASSERT_EQUAL_DELTA(grid->getGridPointActivity(REF_X, REF_Y+1, REF_Z), box.getBoxElement(BoundingBox::BoxOrientation::BackBottomLeft)->getActivity(),0.00001);
-		ASSERT_EQUAL_DELTA(grid->getGridPointActivity(REF_X+1, REF_Y+1, REF_Z), box.getBoxElement(BoundingBox::BoxOrientation::BackBottomRight)->getActivity(),0.00001);
-		ASSERT_EQUAL_DELTA(grid->getGridPointActivity(REF_X, REF_Y+1, REF_Z+1), box.getBoxElement(BoundingBox::BoxOrientation::BackTopLeft)->getActivity(),0.00001);
-		ASSERT_EQUAL_DELTA(grid->getGridPointActivity(REF_X+1, REF_Y+1, REF_Z+1), box.getBoxElement(BoundingBox::BoxOrientation::BackTopRight)->getActivity(),0.00001);
+		ASSERT_EQUAL_DELTA(grid->getGridPointActivity(REF_X, REF_Y, REF_Z),
+				box.getBoxElement(BoundingBox::BoxOrientation::FrontBottomLeft)->getActivity(), 0.00001);
+		ASSERT_EQUAL_DELTA(grid->getGridPointActivity(REF_X+1, REF_Y, REF_Z),
+				box.getBoxElement(BoundingBox::BoxOrientation::FrontBottomRight)->getActivity(), 0.00001);
+		ASSERT_EQUAL_DELTA(grid->getGridPointActivity(REF_X, REF_Y, REF_Z+1),
+				box.getBoxElement(BoundingBox::BoxOrientation::FrontTopLeft)->getActivity(), 0.00001);
+		ASSERT_EQUAL_DELTA(grid->getGridPointActivity(REF_X+1, REF_Y, REF_Z+1),
+				box.getBoxElement(BoundingBox::BoxOrientation::FrontTopRight)->getActivity(), 0.00001);
+		ASSERT_EQUAL_DELTA(grid->getGridPointActivity(REF_X, REF_Y+1, REF_Z),
+				box.getBoxElement(BoundingBox::BoxOrientation::BackBottomLeft)->getActivity(), 0.00001);
+		ASSERT_EQUAL_DELTA(grid->getGridPointActivity(REF_X+1, REF_Y+1, REF_Z),
+				box.getBoxElement(BoundingBox::BoxOrientation::BackBottomRight)->getActivity(), 0.00001);
+		ASSERT_EQUAL_DELTA(grid->getGridPointActivity(REF_X, REF_Y+1, REF_Z+1),
+				box.getBoxElement(BoundingBox::BoxOrientation::BackTopLeft)->getActivity(), 0.00001);
+		ASSERT_EQUAL_DELTA(grid->getGridPointActivity(REF_X+1, REF_Y+1, REF_Z+1),
+				box.getBoxElement(BoundingBox::BoxOrientation::BackTopRight)->getActivity(), 0.00001);
 	}
 }
 
@@ -104,14 +112,22 @@ void BoundingBoxTest::testBoxCorners2() {
 	}
 	// test point
 	{
-		ASSERT_EQUAL_DELTA(grid->getGridPointActivity(REF_X, REF_Y, REF_Z), box.getBoxElement(BoundingBox::BoxOrientation::FrontBottomLeft)->getActivity(),0.00001);
-		ASSERT_EQUAL_DELTA(grid->getGridPointActivity(REF_X+1, REF_Y, REF_Z), box.getBoxElement(BoundingBox::BoxOrientation::FrontBottomRight)->getActivity(),0.00001);
-		ASSERT_EQUAL_DELTA(grid->getGridPointActivity(REF_X, REF_Y, REF_Z+1), box.getBoxElement(BoundingBox::BoxOrientation::FrontTopLeft)->getActivity(),0.00001);
-		ASSERT_EQUAL_DELTA(grid->getGridPointActivity(REF_X+1, REF_Y, REF_Z+1), box.getBoxElement(BoundingBox::BoxOrientation::FrontTopRight)->getActivity(),0.00001);
-		ASSERT_EQUAL_DELTA(grid->getGridPointActivity(REF_X, REF_Y+1, REF_Z), box.getBoxElement(BoundingBox::BoxOrientation::BackBottomLeft)->getActivity(),0.00001);
-		ASSERT_EQUAL_DELTA(grid->getGridPointActivity(REF_X+1, REF_Y+1, REF_Z), box.getBoxElement(BoundingBox::BoxOrientation::BackBottomRight)->getActivity(),0.00001);
-		ASSERT_EQUAL_DELTA(grid->getGridPointActivity(REF_X, REF_Y+1, REF_Z+1), box.getBoxElement(BoundingBox::BoxOrientation::BackTopLeft)->getActivity(),0.00001);
-		ASSERT_EQUAL_DELTA(grid->getGridPointActivity(REF_X+1, REF_Y+1, REF_Z+1), box.getBoxElement(BoundingBox::BoxOrientation::BackTopRight)->getActivity(),0.00001);
+		ASSERT_EQUAL_DELTA(grid->getGridPointActivity(REF_X, REF_Y, REF_Z),
+				box.getBoxElement(BoundingBox::BoxOrientation::FrontBottomLeft)->getActivity(), 0.00001);
+		ASSERT_EQUAL_DELTA(grid->getGridPointActivity(REF_X+1, REF_Y, REF_Z),
+				box.getBoxElement(BoundingBox::BoxOrientation::FrontBottomRight)->getActivity(), 0.00001);
+		ASSERT_EQUAL_DELTA(grid->getGridPointActivity(REF_X, REF_Y, REF_Z+1),
+				box.getBoxElement(BoundingBox::BoxOrientation::FrontTopLeft)->getActivity(), 0.00001);
+		ASSERT_EQUAL_DELTA(grid->getGridPointActivity(REF_X+1, REF_Y, REF_Z+1),
+				box.getBoxElement(BoundingBox::BoxOrientation::FrontTopRight)->getActivity(), 0.00001);
+		ASSERT_EQUAL_DELTA(grid->getGridPointActivity(REF_X, REF_Y+1, REF_Z),
+				box.getBoxElement(BoundingBox::BoxOrientation::BackBottomLeft)->getActivity(), 0.00001);
+		ASSERT_EQUAL_DELTA(grid->getGridPointActivity(REF_X+1, REF_Y+1, REF_Z),
+				box.getBoxElement(BoundingBox::BoxOrientation::BackBottomRight)->getActivity(), 0.00001);
+		ASSERT_EQUAL_DELTA(grid->getGridPointActivity(REF_X, REF_Y+1, REF_Z+1),
+				box.getBoxElement(BoundingBox::BoxOrientation::BackTopLeft)->getActivity(), 0.00001);
+		ASSERT_EQUAL_DELTA(grid->getGridPointActivity(REF_X+1, REF_Y+1, REF_Z+1),
+				box.getBoxElement(BoundingBox::BoxOrientation::BackTopRight)->getActivity(), 0.00001);
 	}
 }
 
@@ -143,9 +159,9 @@ void BoundingBoxTest::testGetInterpolatedActivity1() {
 	BoundingBox box_opposite_side(*grid, *test_point_on_opposite_side);
 	BoundingBox box_opposite_corner(*grid, *test_point_on_opposite_corner);
 
-	double interpolated_act_close = box_close.getInterpolatedActivity();
-	double interpolated_act_mid = box_mid.getInterpolatedActivity();
-	double interpolated_act_far = box_far.getInterpolatedActivity();
+	//double interpolated_act_close = box_close.getInterpolatedActivity();
+	//double interpolated_act_mid = box_mid.getInterpolatedActivity();
+	//double interpolated_act_far = box_far.getInterpolatedActivity();
 	double interpolated_act_corner = box_corner.getInterpolatedActivity();
 	double interpolated_act_opposite_side = box_opposite_side.getInterpolatedActivity();
 	double interpolated_act_opposite_corner = box_opposite_corner.getInterpolatedActivity();
@@ -200,9 +216,9 @@ void BoundingBoxTest::testGetInterpolatedActivity2() {
 	BoundingBox box_opposite_side(*grid, *test_point_on_opposite_side);
 	BoundingBox box_opposite_corner(*grid, *test_point_on_opposite_corner);
 
-	double interpolated_act_close = box_close.getInterpolatedActivity();
-	double interpolated_act_mid = box_mid.getInterpolatedActivity();
-	double interpolated_act_far = box_far.getInterpolatedActivity();
+	//double interpolated_act_close = box_close.getInterpolatedActivity();
+	//double interpolated_act_mid = box_mid.getInterpolatedActivity();
+	//double interpolated_act_far = box_far.getInterpolatedActivity();
 	double interpolated_act_corner = box_corner.getInterpolatedActivity();
 	double interpolated_act_opposite_side = box_opposite_side.getInterpolatedActivity();
 	double interpolated_act_opposite_corner = box_opposite_corner.getInterpolatedActivity();
@@ -239,9 +255,9 @@ void BoundingBoxTest::testBoxCorners3() {
 	const int GRID_Y = 10;
 	const int GRID_Z = 10;
 
-	const int REF_X = 5;
-	const int REF_Y = 5;
-	const int REF_Z = 5;
+	//	const int REF_X = 5;
+	//const int REF_Y = 5;
+	//	const int REF_Z = 5;
 
 	boost::shared_ptr<ActivityGrid> grid(new ActivityGrid(GRID_X, GRID_Y, GRID_Z));
 	grid->clearGrid(EQUAL_ACTIVITY);
@@ -263,7 +279,7 @@ void BoundingBoxTest::testBoxCorners3() {
 	{
 		BoundingBox box(*grid, *test_point, 2);
 
-		double level1_act = std::max(0.0,8 * (EQUAL_ACTIVITY - (DISTANCE2D)));
+		double level1_act = std::max(0.0, 8 * (EQUAL_ACTIVITY - (DISTANCE2D)));
 		double exp_total = level1_act;
 		double activity = box.getInterpolatedActivity();
 		ASSERT_EQUAL_DELTA(exp_total, activity, 0.00001);
@@ -273,13 +289,13 @@ void BoundingBoxTest::testBoxCorners3() {
 	{
 		BoundingBox box(*grid, *test_point, 3);
 
-		double level1_act = std::max (0.0, 8 * (EQUAL_ACTIVITY - (DISTANCE3D)));
+		double level1_act = std::max(0.0, 8 * (EQUAL_ACTIVITY - (DISTANCE3D)));
 		double exp_total = level1_act;
 		double activity = box.getInterpolatedActivity();
 		ASSERT_EQUAL_DELTA(exp_total, activity, 0.00001);
 	}
 
 }
-}//NAMESPACE
+} //NAMESPACE
 
-}//NAMESPACE
+} //NAMESPACE

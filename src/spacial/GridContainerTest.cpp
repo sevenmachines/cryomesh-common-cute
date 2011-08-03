@@ -35,7 +35,7 @@ void GridContainerTest::testGetSet(){
 	const int X = 9;
 		const int Y = 4;
 		const int Z = 7;
-		const int TOTAL_VALS = (X+1) * (Y+1) * (Z+1);
+		//const int TOTAL_VALS = (X+1) * (Y+1) * (Z+1);
 		const double TEST_VAL = 1.3;
 		Point point(X, Y, Z);
 		GridContainer gc(point);
