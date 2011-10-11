@@ -375,7 +375,8 @@ void ActivityGridTest::testGetSetNearestGripPointActivity() {
 }
 
 void ActivityGridTest::testApplyPointActivity() {
-	const int GRID_X = 10;
+#ifdef CUTE_TEST
+const int GRID_X = 10;
 	const int GRID_Y = 11;
 	const int GRID_Z = 12;
 	const double ACTIVITY_DECAY = 2.3;
@@ -395,6 +396,7 @@ void ActivityGridTest::testApplyPointActivity() {
 	double exp_activity = grid_coords.second + exp_activity_mod;
 	grid.applyPointActivityToGridPoint(p_ref, ACTIVITY, grid_coords);
 	ASSERT_EQUAL_DELTA(exp_activity, grid_coords.second, 0.00001);
+#endif
 }
 
 void ActivityGridTest::testApplyPointActivityToGrid() {
@@ -710,7 +712,7 @@ void ActivityGridTest::testGetByActivity() {
 			ASSERT_EQUAL(0, act_other);
 		}
 	}
-
+#ifdef CUTE_TEST
 	//grid2
 	{
 		const double GRID2_VAL1 = 0.376;
@@ -719,6 +721,7 @@ void ActivityGridTest::testGetByActivity() {
 
 		ActivityGrid grid2(GRID_X, GRID_Y, GRID_Z, SCALE);
 		grid2.clearGrid(0);
+
 		grid2.setGridPointActivity(ActivityGrid::CoordinatesIntegers(GRID_X - 1, GRID_Y - 1, GRID_Z - 1), GRID2_VAL1);
 		grid2.setGridPointActivity(ActivityGrid::CoordinatesIntegers(GRID_X - 2, GRID_Y - 1, GRID_Z - 1), GRID2_VAL1);
 
@@ -755,7 +758,7 @@ void ActivityGridTest::testGetByActivity() {
 		}
 
 	}
-
+#endif
 }
 
 void ActivityGridTest::testApplyPointActivityToGrid3() {
