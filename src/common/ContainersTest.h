@@ -25,6 +25,9 @@ public:
 	static void testDeleteByComparison();
 	static void testAdd();
 	static void testFind();
+	static void testGetIntersection();
+	static void testGetDifference();
+
 protected:
 	ContainersTest(){}
 };

@@ -16,6 +16,8 @@ void ContainersTest::runSuite() {
 	s.push_back(CUTE(ContainersTest::testCompare));
 	s.push_back(CUTE(ContainersTest::testDeleteByComparison));
 	s.push_back(CUTE(ContainersTest::testFind));
+	s.push_back(CUTE(ContainersTest::testGetIntersection));
+	s.push_back(CUTE(ContainersTest::testGetDifference));
 	cute::ide_listener lis;
 	cute::makeRunner(lis)(s, "ContainersTest");
 }
@@ -117,5 +119,66 @@ void ContainersTest::testFind() {
 		ASSERT( it_found == testlist.end());
 	}
 }
-}//NAMESPACE
-}//NAMESPACE
+
+void ContainersTest::testGetIntersection() {
+	//
+	{
+		std::list<int> list1;
+		std::list<int> list2;
+		list1.push_back(1);
+		list1.push_back(2);
+		list1.push_back(3);
+		list1.push_back(4);
+		list1.push_back(5);
+		list1.push_back(6);
+		list1.push_back(7);
+		list1.push_back(8);
+		list1.push_back(9);
+		list1.push_back(10);
+		list2.push_back(11);
+		list2.push_back(12);
+		list2.push_back(13);
+		list2.push_back(4);
+		list2.push_back(5);
+		list2.push_back(6);
+		list2.push_back(7);
+		list2.push_back(8);
+		list2.push_back(9);
+		list2.push_back(10);
+		std::list<int> list_out = common::Containers::getIntersection(list1, list2);
+		ASSERT_EQUAL(7, list_out.size());
+
+	}
+}
+void ContainersTest::testGetDifference() {
+	//
+	{
+		std::list<int> list1;
+		std::list<int> list2;
+		list1.push_back(1);
+		list1.push_back(2);
+		list1.push_back(3);
+		list1.push_back(4);
+		list1.push_back(5);
+		list1.push_back(6);
+		list1.push_back(7);
+		list1.push_back(8);
+		list1.push_back(9);
+		list1.push_back(10);
+		list2.push_back(11);
+		list2.push_back(12);
+		list2.push_back(13);
+		list2.push_back(4);
+		list2.push_back(5);
+		list2.push_back(6);
+		list2.push_back(7);
+		list2.push_back(8);
+		list2.push_back(9);
+		list2.push_back(10);
+		std::list<int> list_diff = common::Containers::getDifference(list1, list2);
+		ASSERT_EQUAL(6, list_diff.size());
+
+	}
+}
+} //NAMESPACE
+} //NAMESPACE
